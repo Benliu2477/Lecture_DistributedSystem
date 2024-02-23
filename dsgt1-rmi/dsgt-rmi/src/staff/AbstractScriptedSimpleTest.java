@@ -34,7 +34,7 @@ public abstract class AbstractScriptedSimpleTest {
 
 	public void run() throws Exception {
 
-		//Print all rooms of the hotelq
+		//Print all rooms of the hotel
 		printAllRooms();
 
 		isRoomAvailable(101, today); //true
@@ -63,6 +63,39 @@ public abstract class AbstractScriptedSimpleTest {
 		System.out.println("Printing the list of available rooms after the third booking failure\n");
 		Integer[] expectedRoomsAfterBookingFailure = {201, 203};
 		checkAvailableRoomsOutput(2, expectedRoomsAfterBookingFailure);
+
+
+		// 创建并启动多个线程，每个线程尝试预订房间
+		System.out.println("创建并启动多个线程，每个线程尝试预订房间\n");
+		Thread[] threads = new Thread[5]; // 假设有5个并发请求
+		for (int i = 0; i < threads.length; i++) {
+			final int roomNumber = 201; // 模拟不同的房间预订请求
+			threads[i] = new Thread(() -> {
+				try {
+					LocalDate date = LocalDate.now();
+					String guestName = "Guest" + Thread.currentThread().getId();
+					BookingDetail bd = new BookingDetail(guestName, roomNumber, date);
+
+					if (isRoomAvailable(roomNumber, date)) {
+						addBooking(bd); // 尝试添加预订
+					} else {
+						System.out.println("Room " + roomNumber + " not available for " + guestName);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			});
+			threads[i].start();
+		}
+		// 等待所有线程完成
+		for (Thread t : threads) {
+			t.join();
+		}
+		// 在所有预订尝试完成后检查和打印可用房间
+		System.out.println("\nPrinting the list of available rooms after all concurrent booking attempts:\n");
+		Set<Integer> availableRooms = getAvailableRooms(LocalDate.now());
+		Integer[] availableRoomsArray = availableRooms.toArray(new Integer[0]);
+		checkAvailableRoomsOutput(1, availableRoomsArray);
 	}
 
 	private void checkAvailableRoomsOutput(int expectedSize, Integer[] expectedAvailableRooms) throws Exception {

@@ -17,4 +17,7 @@ public interface BookingManagerInterface extends Remote {
 
     // 获取特定日期所有可用房间的编号
     Set<Integer> getAvailableRooms(LocalDate date) throws RemoteException;
+
+    // 创建并返回一个新的会话对象
+    IBookingSession createSession() throws RemoteException;
 }
