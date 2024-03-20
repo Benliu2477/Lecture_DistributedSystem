@@ -1,0 +1,10 @@
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/controllers/MealsRestController.java
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/exceptions/MealNotFoundException.java
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/domain/Meal.java
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/exceptions/NoMealAvailableException.java
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/domain/Order.java
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/FoodRestServiceApplication.java
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/exceptions/MealNotFoundAdvice.java
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/controllers/MealsRestRpcStyleController.java
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/domain/MealType.java
+/home/jiaao/dapp2024work/dsgt2-rest/dsgt-rest/src/main/java/be/kuleuven/foodrestservice/domain/MealsRepository.java
