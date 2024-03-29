@@ -5,15 +5,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
 
-public class BookingManager extends UnicastRemoteObject implements BookingManagerInterface {
+public class BookingManager implements BookingManagerInterface {
 
 	private Room[] rooms;
 
 	public BookingManager() throws RemoteException {
-		super();
 		this.rooms = initializeRooms();
 	}
 

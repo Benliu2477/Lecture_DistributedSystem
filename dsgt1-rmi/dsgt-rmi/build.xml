@@ -31,7 +31,13 @@
   </target>
 
   <target name="compile" depends="init">
-    <javac includeantruntime="false" srcdir="${src}" destdir="${build}"/>
+    <javac includeantruntime="false" srcdir="${src}" destdir="${build}">
+		<classpath>
+			<fileset dir="/home/jiaao/Downloads/apache-jmeter-5.5/lib" includes="*.jar"/>
+			<fileset dir="/home/jiaao/Downloads/apache-jmeter-5.5/lib/ext" includes="*.jar"/>
+			<!-- 这里，${jmeter.home} 需要替换为你的 JMeter 安装目录的路径 -->
+		</classpath>
+	</javac>
   </target>
   
   <target name="registry.start">
